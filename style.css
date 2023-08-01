@@ -1,4 +1,197 @@
-#heading {
-    text-decoration: underline;
-    color: blueviolet;
+:root {
+    --darker: #6f1f05;
+    --dark: #9F4B2F;
+    --light: #D29177;
+    --lighter: #ffe5ddb0;
+    --white: #ffffff;
 }
+
+* {
+    margin: 0px;
+}
+
+body {
+    font-size: 16px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* --------------------------------nav bar------------------------------------  */
+
+
+#nav-bar {
+    /* border: 3px var(--light) solid; */
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    width: calc(100% - 40px); /* 40px accounts for the total left and right padding */
+    padding: 0px 50px;
+    padding-bottom: 6px;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    box-sizing: border-box;
+}
+
+#nav-bar > h1 {
+    cursor: pointer;
+    color: var(--green);
+}
+
+#nav-bar > ul {
+    padding-left: 0px;
+    width: 22%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#nav-bar > ul > li {
+    font-weight: 500;
+    margin: 5px;
+    list-style: none;
+}
+
+#nav-bar > ul > li > a {
+    text-decoration: none;
+    color: var(--dark);
+}
+
+/* --------------------------------------------------nav bar end--------------------------------------  */
+
+/* --------------------------------------------- Home Sec -------------------------------------------- */
+
+#home {
+    height: 100vh;
+    background-image: url('https://res.cloudinary.com/ayush-pr0/image/upload/v1690878978/background_ofo2kn.png');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+#home-content {
+    width: 50%;
+    padding: 12% 5%;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+#home-content > img {
+    height: 80px;
+}
+
+h1 {
+    font-size: 3rem;
+    letter-spacing: 6px;
+    color: var(--dark);
+}
+
+#home-content > h1 {
+    padding: 50px 0px 10px;
+}
+
+#home-content > h3 {
+    padding-bottom: 160px;
+    font-size: 1.6rem;
+    font-weight: 500;
+    letter-spacing: 4px;
+}
+
+#home-content > h4 {
+    font-weight: 500;
+    color: var(--light);
+}
+
+/* ------------------------------------------- Home Sec end ----------------------------------------- */
+
+/* ------------------------------------------- Restaurant Sec ----------------------------------------- */
+
+ #restaurant {
+    background-image: url('https://res.cloudinary.com/ayush-pr0/image/upload/v1690878972/restaurant-bg_l5vhrc.png');
+    background-size: cover;
+    background-position: center;
+    padding: 40px 80px;
+    box-sizing: border-box;
+ }
+
+ #restaurant > h1 {
+    margin: 50px 0px 30px;
+ }
+
+#restaurant-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 30px 0px;
+}
+
+#card {
+    cursor: pointer;
+    width: 300px;
+    height: 300px;
+    margin: 30px 0px;
+    background-color: var(--lighter);
+    border-radius: 6px;
+}
+
+#card > img {
+    /* width: 100%; */
+    width: 300px;
+    height: 200px;
+    border-radius: 6px 6px 0px 0px;
+}
+
+#card-content {
+    padding: 10px;
+}
+
+#card-content > h4 {
+    color: var(--darker);
+    margin-bottom: 5px;
+}
+
+#card-content > h5 {
+    color: var(--dark);
+    font-weight: 500;
+}
+
+#card-content > h6 {
+    color: var(--light);
+    margin-top: 8px;
+}
+
+
+/* ---------------------------------------- Restaurant Sec end-------------------------------------- */
+
+/* --------------------------------------- Footer --------------------------------------------- */
+
+footer {
+    height: 100vh;
+    background-image: url('https://res.cloudinary.com/ayush-pr0/image/upload/v1690878978/footer_mr2zi3.png');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column-reverse;
+    
+}
+
+#footer-content {
+    /* background-color: var(--light); */
+    display: flex;
+    height: 50%;
+    align-items: center;
+}
+
+#footer-content > h1 {
+    padding: 0px 80px;
+    margin: 30px;
+    width: 30%;
+}
+
+#footer-content > ul > li {
+    padding: 10px;
+    font-size: 1.2rem;
+    color: var(--light);
+}
+
