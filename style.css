@@ -1,6 +1,7 @@
 :root {
     --darker: #6f1f05;
     --dark: #9F4B2F;
+    --dark_off: #9f4b2f22;
     --light: #D29177;
     --lighter: #ffe5ddb0;
     --white: #ffffff;
@@ -119,47 +120,106 @@ h1 {
     margin: 50px 0px 30px;
  }
 
+ input {
+    padding: 6px 10px;
+    margin: 0px 20px;
+    background-color: var(--dark_off);
+ }
+
+ button {
+    cursor: pointer;
+    padding: 6px 10px;
+    color: var(--dark);
+ }
+
 #restaurant-cards {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     margin: 30px 0px;
 }
 
-#card {
+.card {
     cursor: pointer;
     width: 300px;
     height: 300px;
-    margin: 30px 0px;
+    margin: 30px 19px;
     background-color: var(--lighter);
     border-radius: 6px;
 }
 
-#card > img {
+.card > img {
     /* width: 100%; */
     width: 300px;
     height: 200px;
     border-radius: 6px 6px 0px 0px;
 }
 
-#card-content {
+.card-content {
     padding: 10px;
 }
 
-#card-content > h4 {
+.card-content > h4 {
     color: var(--darker);
     margin-bottom: 5px;
 }
 
-#card-content > h5 {
+.card-content > h5 {
     color: var(--dark);
     font-weight: 500;
 }
 
-#card-content > h6 {
+.card-content > h6 {
     color: var(--light);
     margin-top: 8px;
 }
+
+/* -------------------shimmer----------------- */
+.shimmer-card {
+    cursor: pointer;
+    width: 300px;
+    height: 300px;
+    margin: 30px 19px;
+    background-color: var(--lighter);
+    border-radius: 6px;
+}
+
+.shimmer-image {
+    width: 300px;
+    height: 200px;
+    border-radius: 6px 6px 0px 0px;
+    background-color: var(--dark_off);
+}
+
+.shimmer-content {
+    padding: 10px;
+}
+
+.shimmer-title {
+    background-color: var(--dark_off);
+    width: 240px;
+    height: 20px;
+    border-radius: 10px;
+    margin-bottom: 5px;
+}
+
+.shimmer-subtitle {
+    background-color: var(--dark_off);
+    width: 220px;
+    height: 30px;
+    border-radius: 15px;
+}
+
+
+.shimmer-microtitle {
+    background-color: var(--dark_off);
+    width: 100px;
+    height: 16px;
+    border-radius: 8px;
+    margin-top: 8px;
+}
+
+/* -------------------shimmer end----------------- */
 
 
 /* ---------------------------------------- Restaurant Sec end-------------------------------------- */
