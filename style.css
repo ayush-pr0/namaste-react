@@ -143,17 +143,24 @@ h1 {
     cursor: pointer;
     width: 300px;
     height: 300px;
-    margin: 30px 19px;
+    margin: 30px 17px;
     background-color: var(--lighter);
-    border-radius: 6px;
+    border-radius: 20px;
+    border: 3px transparent solid;
+}
+
+.card:hover {
+    border: 3px var(--dark) solid;
 }
 
 .card > img {
     /* width: 100%; */
     width: 300px;
     height: 200px;
-    border-radius: 6px 6px 0px 0px;
+    object-fit: cover;      /* Cover object*/
+    border-radius: 20px 20px 0px 0px;
 }
+
 
 .card-content {
     padding: 10px;
@@ -181,13 +188,13 @@ h1 {
     height: 300px;
     margin: 30px 19px;
     background-color: var(--lighter);
-    border-radius: 6px;
+    border-radius: 20px;
 }
 
 .shimmer-image {
     width: 300px;
     height: 200px;
-    border-radius: 6px 6px 0px 0px;
+    border-radius: 20px 20px 0px 0px;
     background-color: var(--dark_off);
 }
 
