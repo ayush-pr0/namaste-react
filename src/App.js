@@ -8,6 +8,7 @@ import Footer from "./components/Footer";
 import Error from "./components/Error";
 import About from "./components/About";
 import Contact from "./components/COntact";
+import RestaurantMenu from "./components/RestaurantMenu";
 
 const WebPage = () => {
   return (
@@ -40,6 +41,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/contact",
         element: <Contact />,
+      },
+      {
+        path: "/restaurant/:reqId",
+        element: <RestaurantMenu />,
       },
     ],
   },

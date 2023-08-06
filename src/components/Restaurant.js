@@ -1,6 +1,7 @@
 import { CLOUDINARY_URL, SWIGGI_API } from "../utils/content";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 
 const RestaurantCard = ({ data }) => {
   const { name, cloudinaryImageId, locality, areaName, avgRating, sla } =
@@ -71,7 +72,9 @@ const Restaurant = () => {
           <Shimmer />
         ) : (
           result.map((restaurant) => (
-            <RestaurantCard key={restaurant.info.id} data={restaurant} />
+            <Link to={`/restaurant/${restaurant.info.id}`}>
+              <RestaurantCard key={restaurant.info.id} data={restaurant} />
+            </Link>
           ))
         )}
       </div>
