@@ -1,14 +1,6 @@
 const About = () => {
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        margin: "120px",
-      }}
-    >
+    <div className="place-center">
       <h1>About Us</h1>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Est eaque eius
