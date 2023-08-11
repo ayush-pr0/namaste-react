@@ -24,28 +24,21 @@ body {
 
 
 #nav-bar {
-    /* border: 3px var(--light) solid; */
-    height: 80px;
+    border: 5px var(--dark_off) solid;
+    border-radius: 0px 0px 20px 20px;
+    background-color: var(--lighter);
+    height: 100px;
     display: flex;
     justify-content: space-between;
     position: fixed;
-    width: calc(100% - 40px); /* 40px accounts for the total left and right padding */
-    padding: 0px 50px;
-    padding-bottom: 6px;
-    top: 20px;
-    left: 20px;
-    right: 20px;
+    width: 100%;
+    padding: 20px 50px 10px;
     box-sizing: border-box;
-}
-
-#nav-bar > h1 {
-    cursor: pointer;
-    color: var(--green);
 }
 
 #nav-bar > ul {
     padding-left: 0px;
-    width: 22%;
+    width: 40%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -58,7 +51,7 @@ body {
 }
 
 #nav-bar > ul > li > a {
-    color: var(--dark);
+    color: var(--darker);
 }
 
 /* --------------------------------------------------nav bar end--------------------------------------  */
@@ -72,6 +65,13 @@ body {
     background-position: center;
     display: flex;
     flex-direction: row-reverse;
+}
+#recipe-home {
+    height: 100vh;
+    background-image: url('https://res.cloudinary.com/ayush-pr0/image/upload/v1691740843/Food_and_Restaurant_Presentation_vyuxdp.png');
+    background-size: cover;
+    background-position: center;
+    display: flex;
 }
 
 #home-content {
@@ -111,7 +111,7 @@ h1 {
 
 /* ------------------------------------------- Restaurant Sec ----------------------------------------- */
 
- #restaurant {
+ #feature {
     background-image: url('https://res.cloudinary.com/ayush-pr0/image/upload/v1690878972/restaurant-bg_l5vhrc.png');
     background-size: cover;
     background-position: center;
@@ -119,23 +119,33 @@ h1 {
     box-sizing: border-box;
  }
 
- #restaurant > h1 {
+ #feature > h1 {
     margin: 50px 0px 30px;
  }
 
- input {
+ #feature-nav > input {
+    border-radius: 5px;
+    font-size: 1rem;
     padding: 6px 10px;
     margin: 0px 20px;
-    background-color: var(--dark_off);
+    background-color: var(--lighter);
  }
 
- button {
+ #feature-nav > button {
     cursor: pointer;
+    font-size: 1rem;
     padding: 6px 10px;
+    margin-right: 50px;
     color: var(--dark);
  }
 
-#restaurant-cards {
+ #feature-nav > select {
+    padding: 6px;
+    font-size: 1rem;
+    color: var(--dark);
+ }
+
+#feature-cards {
     display: flex;
     flex-wrap: wrap;
     /* justify-content: space-between; */
@@ -272,5 +282,5 @@ footer {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin: 120px;
+    padding: 160px;
 }

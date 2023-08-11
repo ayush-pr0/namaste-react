@@ -16,7 +16,7 @@ const RestaurantMenu = () => {
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
-        margin: "120px",
+        padding: "120px",
       }}
     >
       <h1>{restaurantData.name}</h1>

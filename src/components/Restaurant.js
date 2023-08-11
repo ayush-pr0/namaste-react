@@ -1,24 +1,8 @@
-import { CLOUDINARY_URL, SWIGGI_API } from "../utils/content";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
-
-const RestaurantCard = ({ data }) => {
-  const { name, cloudinaryImageId, locality, areaName, avgRating, sla } =
-    data.info;
-
-  return (
-    <div className="card">
-      <img src={CLOUDINARY_URL + cloudinaryImageId} />
-      <div className="card-content">
-        <h4>{name}</h4>
-        <h5>{`${locality}, ${areaName}`}</h5>
-        <h5>Delivery Time: {sla.slaString}</h5>
-        <h6>Rating: {avgRating}</h6>
-      </div>
-    </div>
-  );
-};
+import RestaurantCard from "./RestaurantCard";
+import { SWIGGI_API } from "../utils/content";
 
 const Restaurant = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
@@ -54,9 +38,9 @@ const Restaurant = () => {
   };
 
   return (
-    <section id="restaurant">
+    <section id="feature">
       <h1>Get Some Food...</h1>
-      <div id="restaurant-nav">
+      <div id="feature-nav">
         <input
           type="text"
           placeholder="Domino's Pizza"
@@ -67,13 +51,16 @@ const Restaurant = () => {
           Search
         </button>
       </div>
-      <div id="restaurant-cards">
-        {result?.length == 0 ? (
+      <div id="feature-cards">
+        {result.length == 0 ? (
           <Shimmer />
         ) : (
           result.map((restaurant) => (
-            <Link to={`/restaurant/${restaurant.info.id}`}>
-              <RestaurantCard key={restaurant.info.id} data={restaurant} />
+            <Link
+              to={`/restaurant/${restaurant.info.id}`}
+              key={restaurant.info.id}
+            >
+              <RestaurantCard data={restaurant} />
             </Link>
           ))
         )}

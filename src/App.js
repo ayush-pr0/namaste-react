@@ -1,4 +1,4 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 
@@ -9,12 +9,26 @@ import Error from "./components/Error";
 import About from "./components/About";
 import Contact from "./components/COntact";
 import RestaurantMenu from "./components/RestaurantMenu";
+import useOnlineStatus from "./utils/useOnlineStatus";
+// import RecipeHome from "./components/RecipeHome";
+// import Recipe from "./components/Recipe";
+
+const RecipeHome = lazy(() => import("./components/RecipeHome"));
+const Recipe = lazy(() => import("./components/Recipe"));
 
 const WebPage = () => {
+  const onlineStatus = useOnlineStatus();
   return (
     <>
       <NavBar />
-      <Outlet />
+      {onlineStatus ? (
+        <Outlet />
+      ) : (
+        <h1 style={{ paddingTop: "180px", textAlign: "center" }}>
+          Oop's!! You are offline. Please Check your internet connection...
+        </h1>
+      )}
+      <Footer />
     </>
   );
 };
@@ -23,14 +37,35 @@ const appRouter = createBrowserRouter([
   {
     path: "/",
     element: <WebPage />,
-    errorElement: <Error />,
+    errorElement: (
+      <>
+        <NavBar />
+        <Error />
+      </>
+    ),
     children: [
       {
         path: "/",
         element: (
           <>
             <Main />
-            <Footer />
+          </>
+        ),
+      },
+      {
+        path: "/recipes",
+        element: (
+          <>
+            <Suspense
+              fallback={
+                <div className="place-center">
+                  <h1>Loding...</h1>
+                </div>
+              }
+            >
+              <RecipeHome />
+              <Recipe />
+            </Suspense>
           </>
         ),
       },
