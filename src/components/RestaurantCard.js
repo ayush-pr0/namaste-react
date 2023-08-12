@@ -17,4 +17,28 @@ const RestaurantCard = ({ data }) => {
   );
 };
 
+// Higher Order Component (accept a component and return enhanced component)
+// (input)RestaurantCard => (output)RestaurantCardGood
+export const withGoodLabel = (RestaurantCard) => {
+  return (props) => {
+    return (
+      <div>
+        <label
+          style={{
+            backgroundColor: "green",
+            color: "white",
+            margin: "0px 17px",
+            padding: "8px",
+            borderRadius: "8px",
+            position: "absolute",
+          }}
+        >
+          Good
+        </label>
+        <RestaurantCard {...props} />
+      </div>
+    );
+  };
+};
+
 export default RestaurantCard;

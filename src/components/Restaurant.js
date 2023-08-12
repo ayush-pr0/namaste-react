@@ -1,13 +1,15 @@
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard, { withGoodLabel } from "./RestaurantCard";
 import { SWIGGI_API } from "../utils/content";
 
 const Restaurant = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
   const [searchText, setSearchText] = useState("");
   const [result, setResult] = useState([]);
+
+  const RestaurantCardGood = withGoodLabel(RestaurantCard);
 
   const search_for = () => {
     if (!searchText.trim()) {
@@ -29,11 +31,14 @@ const Restaurant = () => {
     const data = await fetch(SWIGGI_API);
 
     const json = await data.json();
+    const filterData = json.data.cards.filter(
+      (e) => e.card.card.id === "restaurant_grid_listing"
+    );
     setListOfRestaurants(
-      json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      filterData[0]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
     setResult(
-      json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      filterData[0]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
   };
 
@@ -52,15 +57,19 @@ const Restaurant = () => {
         </button>
       </div>
       <div id="feature-cards">
-        {result.length == 0 ? (
+        {result?.length == 0 ? (
           <Shimmer />
         ) : (
-          result.map((restaurant) => (
+          result?.map((restaurant) => (
             <Link
               to={`/restaurant/${restaurant.info.id}`}
               key={restaurant.info.id}
             >
-              <RestaurantCard data={restaurant} />
+              {restaurant.info.avgRating > 4.2 ? (
+                <RestaurantCardGood data={restaurant} />
+              ) : (
+                <RestaurantCard data={restaurant} />
+              )}
             </Link>
           ))
         )}

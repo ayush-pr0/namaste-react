@@ -13,15 +13,6 @@ const Recipe = () => {
     fetchRecipeData();
   };
 
-  const onChangeHandler = (val) => {
-    console.log(val);
-    if (val == "custome") setSearch("");
-    // else {
-    //   setSearch(val);
-    //   onClickHandler();
-    // }
-  };
-
   useEffect(() => {
     fetchRecipeData();
   }, []);

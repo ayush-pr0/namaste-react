@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import useReataurantMenu from "../utils/useReataurantMenu";
 import { CLOUDINARY_URL } from "../utils/content";
+import Loding from "./Loding";
 
 const RestaurantMenu = () => {
   const { reqId } = useParams();
@@ -8,7 +9,7 @@ const RestaurantMenu = () => {
   const restaurantData = useReataurantMenu(reqId);
 
   return !restaurantData.name ? (
-    <></>
+    <Loding />
   ) : (
     <div
       style={{

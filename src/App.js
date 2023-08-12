@@ -10,8 +10,7 @@ import About from "./components/About";
 import Contact from "./components/COntact";
 import RestaurantMenu from "./components/RestaurantMenu";
 import useOnlineStatus from "./utils/useOnlineStatus";
-// import RecipeHome from "./components/RecipeHome";
-// import Recipe from "./components/Recipe";
+import Loding from "./components/Loding";
 
 const RecipeHome = lazy(() => import("./components/RecipeHome"));
 const Recipe = lazy(() => import("./components/Recipe"));
@@ -56,13 +55,7 @@ const appRouter = createBrowserRouter([
         path: "/recipes",
         element: (
           <>
-            <Suspense
-              fallback={
-                <div className="place-center">
-                  <h1>Loding...</h1>
-                </div>
-              }
-            >
+            <Suspense fallback={<Loding />}>
               <RecipeHome />
               <Recipe />
             </Suspense>
