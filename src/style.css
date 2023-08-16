@@ -243,6 +243,125 @@ h1 {
 
 /* ---------------------------------------- Restaurant Sec end-------------------------------------- */
 
+/* ---------------------------------------- RestaurantMenu Sec -------------------------------------- */
+
+#restaurant-menu {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: auto;
+    margin: 0px 24%;
+    padding: 160px 0px 80px;
+}
+
+#restaurant-menu-info {
+    display: flex;
+    padding-bottom: 80px ;
+}
+
+#restaurant-menu-img {
+    margin-right: 160px;
+}
+
+#restaurant-menu-img > img {
+    width: 300px;
+    height: 240px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+#restaurant-menu-img > span {
+    display: block;
+    margin: 10px 0px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: var(--dark);
+}
+
+#restaurant-menu-details > h1 {
+    font-size: 2rem;
+    margin-bottom: 2px;
+}
+
+#restaurant-menu-details h4 {
+    font-size: 0.8rem;
+    color: var(--light);
+}
+
+#restaurant-menu-details > h3 {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    color: var(--light);
+}
+
+#rating {
+    border-radius: 5px;
+    background-color: var(--dark_off);
+    padding: 6px 12px;
+    margin-top: 30px;
+    width: fit-content;
+}
+
+#rating > h5 {
+    color: var(--light);
+    margin: 5px 0px;
+}
+
+#restaurant-menu-cards {
+    width: 100%;
+}
+
+.restaurant-menu-card {
+    background-color: var(--dark_off);
+    box-shadow: 3px 6px 10px #e0e0d0;
+    padding-bottom: 1px;
+    margin: 18px;
+    border-radius: 10px;
+}
+
+.restaurant-menu-card-nav {
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    padding: 10px;
+    color: var(--dark);
+}
+
+.restaurant-menu-card-item {
+    display: flex;
+    justify-content: space-between;
+    margin: 5px ;
+    padding: 8px;
+    background-color: var(--white);
+    border-radius: 5px;
+    height: 110px;
+}
+
+.restaurant-menu-card-item > .info {
+    width: 70%;
+    
+}
+
+.restaurant-menu-card-item > img {
+    width: 20%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.restaurant-menu-card-item > .info > h5 {
+    color: var(--light);
+    margin: 8px 0px;
+}
+
+.restaurant-menu-card-item > .info > h6 {
+    color: gray;
+    padding: 5px 0px;
+}
+
+
+/* -------------------------------------- RestaurantMenu Sec end -------------------------------------- */
+
 /* --------------------------------------- Footer --------------------------------------------- */
 
 footer {

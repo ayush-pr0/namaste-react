@@ -12,7 +12,12 @@ const useReataurantMenu = (reqId) => {
     const data = await fetch(RESTAURANT_API + reqId);
 
     const json = await data.json();
-    setRestaurantData(json?.data?.cards[0]?.card?.card?.info);
+    const resData = json?.data?.cards[0]?.card?.card?.info;
+    const resCards =
+      json?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
+        (e) => e?.card?.card?.["@type"].includes(".ItemCategory")
+      );
+    setRestaurantData({ resData, resCards });
   };
 
   return restaurantData;
