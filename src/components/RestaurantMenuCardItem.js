@@ -16,4 +16,17 @@ const RestaurantMenuCardItem = ({ info }) => {
   );
 };
 
+export const withAddButton = (RestaurantMenuCardItem) => {
+  return (props) => {
+    return (
+      <div style={{ display: "flex" }}>
+        <RestaurantMenuCardItem {...props} />
+        <button type="button" style={{ margin: "5px", backgroundColor: "gray", color: "white", borderRadius: "5px" }}>
+          Add
+        </button>
+      </div>
+    );
+  };
+};
+
 export default RestaurantMenuCardItem;

@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useState } from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 
@@ -11,14 +11,16 @@ import Contact from "./components/COntact";
 import RestaurantMenu from "./components/RestaurantMenu";
 import useOnlineStatus from "./utils/useOnlineStatus";
 import Loding from "./components/Loding";
+import UserContext from "./utils/userContext";
 
 const RecipeHome = lazy(() => import("./components/RecipeHome"));
 const Recipe = lazy(() => import("./components/Recipe"));
 
 const WebPage = () => {
+  const [user, setUser] = useState("");
   const onlineStatus = useOnlineStatus();
   return (
-    <>
+    <UserContext.Provider value={{ username: user, setUser }}>
       <NavBar />
       {onlineStatus ? (
         <Outlet />
@@ -28,7 +30,7 @@ const WebPage = () => {
         </h1>
       )}
       <Footer />
-    </>
+    </UserContext.Provider>
   );
 };
 

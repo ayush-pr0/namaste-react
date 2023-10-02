@@ -1,8 +1,12 @@
 import { useState } from "react";
-import RestaurantMenuCardItem from "./RestaurantMenuCardItem";
+import RestaurantMenuCardItem, {
+  withAddButton,
+} from "./RestaurantMenuCardItem";
 
 const RestaurantMenuCard = ({ title, itemCards }) => {
   const [showCardItem, setShowCardItem] = useState(false);
+  const RestaurantMenuCardItemWithAdd = withAddButton(RestaurantMenuCardItem);
+
   const clickHandler = () => {
     setShowCardItem(!showCardItem);
   };
@@ -14,7 +18,7 @@ const RestaurantMenuCard = ({ title, itemCards }) => {
       </div>
       {showCardItem &&
         itemCards.map((item) => (
-          <RestaurantMenuCardItem
+          <RestaurantMenuCardItemWithAdd
             info={item?.card?.info}
             key={item?.card?.info?.id}
           />

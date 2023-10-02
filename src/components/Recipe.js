@@ -1,11 +1,13 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { RECIPE_API } from "../utils/content";
 import RecipeCard from "./RecipeCard";
+import UserContext from "../utils/userContext";
 
 const Recipe = () => {
   const [recipeData, setRecipeData] = useState([]);
   const [search, setSearch] = useState("");
+  const { username } = useContext(UserContext);
 
   const onClickHandler = () => {
     if (!search) return;
@@ -25,7 +27,7 @@ const Recipe = () => {
 
   return (
     <section id="feature">
-      <h1>Get Some Recipe...</h1>
+      <h1>Hello {username || "Guest"}!.. Get Some Recipe..</h1>
       <div id="feature-nav">
         <input
           type="text"

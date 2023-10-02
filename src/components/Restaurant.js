@@ -1,13 +1,15 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import RestaurantCard, { withGoodLabel } from "./RestaurantCard";
 import { SWIGGI_API } from "../utils/content";
+import UserContext from "../utils/userContext";
 
 const Restaurant = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
   const [searchText, setSearchText] = useState("");
   const [result, setResult] = useState([]);
+  const { username } = useContext(UserContext);
 
   const RestaurantCardGood = withGoodLabel(RestaurantCard);
 
@@ -44,7 +46,7 @@ const Restaurant = () => {
 
   return (
     <section id="feature">
-      <h1>Get Some Food...</h1>
+      <h1>Hello {username || "Guest"}!.. Get Some Food..</h1>
       <div id="feature-nav">
         <input
           type="text"
@@ -66,9 +68,9 @@ const Restaurant = () => {
               key={restaurant.info.id}
             >
               {restaurant.info.avgRating > 4.2 ? (
-                <RestaurantCardGood data={restaurant} />
+                <RestaurantCardGood info={restaurant.info} />
               ) : (
-                <RestaurantCard data={restaurant} />
+                <RestaurantCard info={restaurant.info} />
               )}
             </Link>
           ))
